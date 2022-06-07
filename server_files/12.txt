@@ -1,0 +1,4 @@
+INSERT INTO public.student(
+	id, name, score)
+	VALUES (3, 'bob', 5);
+	
