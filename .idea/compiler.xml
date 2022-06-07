@@ -6,8 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="geek-cloud" />
+        <module name="cloud-server" />
+        <module name="cloud-application" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-server" options="--add-exports java.xml/com.sun.org.apache.xerces.internal.impl.io=ALL-UNNAMED" />
+    </option>
   </component>
 </project>
