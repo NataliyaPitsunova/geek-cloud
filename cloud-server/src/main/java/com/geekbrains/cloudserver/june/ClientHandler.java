@@ -1,3 +1,5 @@
+package com.geekbrains.cloudserver.june;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
@@ -6,7 +8,6 @@ import java.net.Socket;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
-
 
 
 public class ClientHandler implements Runnable {
@@ -47,7 +48,7 @@ public class ClientHandler implements Runnable {
                 System.out.println("received: " + command);
                 if (command.equals("#file")) {              //это команда приходит если нажата кнопка upload
                     String fileName = is.readUTF();
-                    long len = is.readLong();//понадобиться
+                    long len = is.readLong();//понадобится
                     File file = Path.of(serverDir).resolve(fileName).toFile();
                     try (FileOutputStream fos = new FileOutputStream(file)) {
                         int count;
