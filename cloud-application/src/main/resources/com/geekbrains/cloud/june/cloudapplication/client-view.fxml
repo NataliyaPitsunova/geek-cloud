@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_RIGHT" prefHeight="508.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.cloudapp.june.cloudapplication.CloudAppController">
+<VBox alignment="CENTER_RIGHT" prefHeight="508.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.cloud.june.cloudapplication.CloudAppController"
+>
 
     <HBox prefHeight="73.0" prefWidth="722.0">
 
@@ -27,25 +28,26 @@
 
     </HBox>
     <HBox prefHeight="522.0" prefWidth="722.0">
-      <ListView fx:id="clientList" prefHeight="460.0" prefWidth="355.0" />
+      <ListView fx:id="clientList" onMouseClicked="#goToDir" prefHeight="460.0" prefWidth="355.0" />
         <Separator orientation="VERTICAL" prefHeight="290.0" prefWidth="2.0" />
-      <ListView fx:id="serverList" prefHeight="460.0" prefWidth="357.0" />
+      <ListView fx:id="serverList" onMouseClicked="#goToServerDir" prefHeight="460.0" prefWidth="357.0" />
 
         <VBox.margin>
             <Insets />
         </VBox.margin>
     </HBox>
-    <HBox prefHeight="90.0" prefWidth="722.0" spacing="15.0">
+    <HBox spacing="10" >
+        <Button fx:id="upload" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#upload" prefHeight="22.0" prefWidth="126.0" text=" Upload" />
 
-        <Button fx:id="download" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#download" prefHeight="22.0" prefWidth="126.0" text="Download">
-            <HBox.margin>
-                <Insets left="15.0" />
-            </HBox.margin>
-        </Button>
-        <Button fx:id="rename" alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Rename" />
-        <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="22.0" prefWidth="126.0" text=" Upload" />
-        <Button fx:id="delete" mnemonicParsing="false" prefHeight="21.0" prefWidth="126.0" text="Delete" />
-        <Button fx:id="refresh" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="126.0" text="Refresh" />
+        <Button fx:id="download" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#download" prefHeight="22.0" prefWidth="126.0" text="Download"/>
+
+
+        <Button fx:id="delete" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefHeight="21.0" prefWidth="126.0" text="Delete" />
+        <Button fx:id="rename" HBox.hgrow="ALWAYS" maxWidth="Infinity" prefHeight="26.0" prefWidth="126.0" text="Rename" />
+
+        <padding>
+            <Insets bottom="5" left="5" right="5" top="5"/>
+        </padding>
 
     </HBox>
 

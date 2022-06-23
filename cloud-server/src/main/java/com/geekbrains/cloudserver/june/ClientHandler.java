@@ -1,6 +1,6 @@
 package com.geekbrains.cloudserver.june;
 
-import org.jetbrains.annotations.NotNull;
+
 
 import java.io.*;
 import java.net.Socket;
@@ -16,7 +16,7 @@ public class ClientHandler implements Runnable {
     private DataInputStream is;
     private DataOutputStream os;
 
-    public ClientHandler(@NotNull Socket socket) throws IOException {
+    public ClientHandler(Socket socket) throws IOException {
         is = new DataInputStream(socket.getInputStream());
         os = new DataOutputStream(socket.getOutputStream());
         System.out.println("Client accepted");

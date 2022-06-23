@@ -5,11 +5,12 @@ module com.geekbrains.cloudapp.june.cloudapplication {
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
-    requires validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
+    requires com.geekbrains.cloud.june.model;
+    requires io.netty.codec;
 
-    opens com.geekbrains.cloudapp.june.cloudapplication to javafx.fxml;
-    exports com.geekbrains.cloudapp.june.cloudapplication;
+    opens com.geekbrains.cloud.june.cloudapplication to javafx.fxml;
+    exports com.geekbrains.cloud.june.cloudapplication;
+
 }
