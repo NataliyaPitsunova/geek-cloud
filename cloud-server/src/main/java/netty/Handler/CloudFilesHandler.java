@@ -4,6 +4,7 @@ import com.geekbrains.cloud.*;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -26,16 +27,42 @@ public class CloudFilesHandler extends SimpleChannelInboundHandler<CloudMessage>
         } else if (cloudMessage instanceof FileMessage fileMessage) {
             Files.write(currentDir.resolve(fileMessage.getName()), fileMessage.getData());
             ctx.writeAndFlush(new ListFiles(currentDir));
-        } else if (cloudMessage instanceof GoToDirServer goToDirServer) {                   //переход в папку
-            if (!(goToDirServer.getName().equals("[ ... ]"))) {     //если имя выбранного объекта не [ ... ]
-                if (currentDir.resolve(goToDirServer.getName()).toFile().isDirectory()) {  //проверка на тип директория/файл
-                    currentDir = currentDir.resolve(goToDirServer.getName());
-                    ctx.writeAndFlush(new ListFiles(currentDir));// возвращаем список файлов
-                }
-            } else {
-                currentDir = currentDir.getParent();        //иначе возвращаемся на папку выше
-                ctx.writeAndFlush(new ListFiles(currentDir));//отсылаем список файлов
+        } else if (cloudMessage instanceof GoToDirServer goToDirServer) {
+            switch (goToDirServer.getActionWithFile()) {
+                case goTo:
+                    if (!(goToDirServer.getName().equals("[ ... ]"))) {     //если имя выбранного объекта не [ ... ]
+                        if (currentDir.resolve(goToDirServer.getName()).toFile().isDirectory()) {  //проверка на тип директория/файл
+                            currentDir = currentDir.resolve(goToDirServer.getName());
+                            ctx.writeAndFlush(new ListFiles(currentDir));// возвращаем список файлов
+                        }
+                    } else {
+                        currentDir = currentDir.getParent();        //иначе возвращаемся на папку выше
+                        ctx.writeAndFlush(new ListFiles(currentDir));//отсылаем список файлов
+                    }
+                    break;
+                case delete:
+                    if (!(goToDirServer.getName().equals("[ ... ]"))) {     //если имя выбранного объекта не [ ... ]
+                        if (currentDir.resolve(goToDirServer.getName()).toFile().isFile()) {
+                            currentDir.resolve(goToDirServer.getName()).toFile().delete();
+                            ctx.writeAndFlush(new ListFiles(currentDir));// возвращаем список файлов
+                        } else {
+                            for (File f : currentDir.resolve(goToDirServer.getName()).toFile().listFiles()) {
+                                if (f.exists()) {
+                                    f.delete();
+                                }
+                            }
+                            currentDir.resolve(goToDirServer.getName()).toFile().delete();
+                            ctx.writeAndFlush(new ListFiles(currentDir));
+                        }
+                    }
+                    break;
+                case create:
+                    File f = new File(currentDir.resolve(goToDirServer.getName()).toString());
+                    f.mkdir();
+                    ctx.writeAndFlush(new ListFiles(currentDir));
+                    break;
             }
         }
+
     }
 }

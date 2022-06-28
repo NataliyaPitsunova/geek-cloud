@@ -10,17 +10,22 @@ import java.util.stream.Collectors;
 
 @Data
 public class ListFiles implements CloudMessage {
-    private List<String> files;
+    private List<FileInfo> files;
+
 
     public ListFiles(Path path) throws IOException {
+        FileInfo next = new FileInfo(path);
+        next.setFileName("[ ... ]");
 
         files = Files.list(path)
-                .map(p -> p.getFileName().toString())
+                .map(FileInfo::new)
                 .collect(Collectors.toList());
 
         if (!(path.endsWith("server_files"))) {
-    files.add(0,"[ ... ]");
+            files.add(0, next);
         }
-    }
 
+    }
 }
+
+
