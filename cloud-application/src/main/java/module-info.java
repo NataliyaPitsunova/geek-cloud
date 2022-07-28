@@ -15,10 +15,4 @@ module com.geekbrains.cloudapp.june.cloudapplication {
 
   opens com.geekbrains.cloud.june.cloudapplication to javafx.fxml;
     exports com.geekbrains.cloud.june.cloudapplication;}
-/*
-    exports com.geekbrains.cloud.june.cloudapplication.clientwindow;
-    opens com.geekbrains.cloud.june.cloudapplication.clientwindow to javafx.fxml;
-    exports com.geekbrains.cloud.june.cloudapplication.input;
-    opens com.geekbrains.cloud.june.cloudapplication.input to javafx.fxml;
 
-}*/

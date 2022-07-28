@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RenameFile implements CloudMessage {
-    private final String source;
-    private final String destination;
+    public final String source;
+    public final String destination;
 }

@@ -343,7 +343,7 @@ public class CloudAppController implements Initializable {
                     }
                     updateList(pathToDir.toFile());
                 }else{
-                    network.write(new RenameFile(serverList.getSelectionModel().getSelectedItem().getFileName(), name));
+                    network.write(new RenameFile (serverList.getSelectionModel().getSelectedItem().getFileName(), name));
                 }
 
             }
