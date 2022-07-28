@@ -31,12 +31,12 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
     <dependencies>
-        <dependency>
+      <!--  <dependency>
             <groupId>com.whatspos.sdk</groupId>
             <artifactId>3rdsys-cloudmsg</artifactId>
             <version>1.2.0</version>
             <scope>import</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

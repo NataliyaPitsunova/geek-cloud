@@ -9,12 +9,15 @@ import java.nio.file.Path;
 @Data
 public class FileMessage implements CloudMessage {
     private final long size;
-    private final byte[] data;
     private final String name;
+    private final byte[] data;
+
+
 
     public FileMessage(Path path) throws IOException {
         size = Files.size(path);
-        data = Files.readAllBytes(path);
         name = path.getFileName().toString();
+        data = Files.readAllBytes(path);
     }
+
 }

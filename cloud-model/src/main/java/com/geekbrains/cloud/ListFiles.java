@@ -13,18 +13,16 @@ public class ListFiles implements CloudMessage {
     private List<FileInfo> files;
 
 
-    public ListFiles(Path path) throws IOException {
+    public ListFiles(Path path, String root) throws IOException {
         FileInfo next = new FileInfo(path);
         next.setFileName("[ ... ]");
-
         files = Files.list(path)
                 .map(FileInfo::new)
                 .collect(Collectors.toList());
 
-        if (!(path.endsWith("server_files"))) {
+        if (!(path.endsWith(root))) {
             files.add(0, next);
         }
-
     }
 }
 

@@ -1,4 +1,4 @@
-package netty.Handler;
+package com.geekbrains.cloud.june.cloudserver.Handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

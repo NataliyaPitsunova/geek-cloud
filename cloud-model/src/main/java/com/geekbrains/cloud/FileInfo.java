@@ -2,19 +2,17 @@ package com.geekbrains.cloud;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.time.temporal.ChronoUnit;
 
 import static java.nio.file.Files.*;
 
+//это класс информации о файле или папке
 public class FileInfo implements CloudMessage {
     private String fileName;
     private FileType type;
     private Long size;
     private LocalDateTime lastModified;
-
 
     public String getFileName() {
         return fileName;

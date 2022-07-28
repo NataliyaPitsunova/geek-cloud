@@ -1,75 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="CENTER_RIGHT" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/18"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.cloud.june.cloudapplication.CloudAppController">
 
-    <HBox prefHeight="30.0" prefWidth="722.0">
+<VBox alignment="CENTER_RIGHT" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #B4A8AA;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.cloud.june.cloudapplication.CloudAppController">
 
-        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="30.0" prefWidth="419.0"
-               style="-fx-background-color: #DFE27C;" text="Client :" textAlignment="CENTER">
+    <HBox prefHeight="30.0" prefWidth="722.0" style="-fx-background-color: #B4A8AA;">
+
+        <Label fx:id="labelClient" alignment="CENTER" contentDisplay="TOP" prefHeight="22.0" prefWidth="433.0" style="-fx-background-color: #B4A8AA;" text="Client :" textAlignment="CENTER">
             <font>
-                <Font name="System Bold Italic" size="14.0"/>
+                <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
-        <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL"
-                   prefHeight="200.0">
+        <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: #B4A8AA;">
             <padding>
-                <Insets left="3.0" right="1.0"/>
+                <Insets left="3.0" right="1.0" />
             </padding>
         </Separator>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="420.0"
-               style="-fx-background-color: #DFE27C;" text="Server" textAlignment="CENTER"
-               textOverrun="CENTER_ELLIPSIS">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="430.0" style="-fx-background-color: #B4A8AA;" text="Server" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
             <font>
-                <Font name="System Bold Italic" size="14.0"/>
+                <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
 
     </HBox>
-    <HBox prefHeight="522.0" prefWidth="722.0">
-        <TableView fx:id="clientList" onMouseClicked="#goToDir" prefHeight="460.0" prefWidth="420.0"/>
-        <Separator orientation="VERTICAL" prefHeight="290.0" prefWidth="10.0"/>
-        <TableView fx:id="serverList" onMouseClicked="#goToServerDir" prefHeight="460.0" prefWidth="420.0"/>
+    <HBox prefHeight="520.0" prefWidth="850.0" style="-fx-background-color: #B4A8AA;">
+        <TableView fx:id="clientList" onMouseClicked="#goToDir" prefHeight="460.0" prefWidth="420.0" style="-fx-background-color: #f2eae1;">
+         <HBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </HBox.margin></TableView>
+        <Separator orientation="VERTICAL" prefHeight="290.0" prefWidth="10.0" style="-fx-background-color: #B4A8AA;" />
+        <TableView fx:id="serverList" onMouseClicked="#goToServerDir" prefHeight="460.0" prefWidth="420.0" style="-fx-background-color: #f2eae1;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin></TableView>
 
         <VBox.margin>
-            <Insets/>
+            <Insets />
         </VBox.margin>
     </HBox>
-    <Pane fx:id="createNewFolderPane" focusTraversable="false" prefHeight="36.0" prefWidth="850.0">
+    <Pane fx:id="createNewFolderPane" focusTraversable="false" prefHeight="56.0" prefWidth="849.0" style="-fx-background-color: #B4A8AA;">
         <children>
-            <TextField fx:id="nameNewDir" layoutX="17.0" layoutY="1.0" prefHeight="28.0" prefWidth="724.0"
-                       promptText="Введите наименование новой папки"/>
-            <Button fx:id="OK" focusTraversable="false" onAction="#setNameNewFolder" layoutX="762.0" layoutY="2.0"
-                    maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
-                    mnemonicParsing="false" prefHeight="28.0" prefWidth="88.0" text="ОК">
-                <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                </padding>
+            <TextField fx:id="nameNewDir" layoutX="17.0" layoutY="1.0" prefHeight="28.0" prefWidth="724.0" style="-fx-background-color: #f2eae1;" />
+            <Button fx:id="OK" focusTraversable="false" layoutX="756.0" layoutY="2.0" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setNameNewFolder" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: #D0C9D0;" text="ОК">
                 <opaqueInsets>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </opaqueInsets>
+            <font>
+               <Font size="14.0" />
+            </font>
             </Button>
         </children>
+      <VBox.margin>
+         <Insets top="5.0" />
+      </VBox.margin>
+      <padding>
+         <Insets top="5.0" />
+      </padding>
     </Pane>
-    <HBox fx:id="buttons" spacing="10">
-        <Button fx:id="upload" focusTraversable="false" maxWidth="Infinity" onAction="#upload" prefHeight="22.0"
-                prefWidth="126.0" text=" Upload" HBox.hgrow="ALWAYS"/>
+    <HBox fx:id="buttons" spacing="10" style="-fx-background-color: #B4A8AA;">
+        <Button fx:id="upload" focusTraversable="false" maxWidth="Infinity" onAction="#upload" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #D0C9D0;" text=" Upload" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font></Button>
 
-        <Button fx:id="download" focusTraversable="false" maxWidth="Infinity" onAction="#download" prefHeight="22.0"
-                prefWidth="126.0" text="Download" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="download" focusTraversable="false" maxWidth="Infinity" onAction="#download" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #D0C9D0;" text="Download" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font></Button>
+        <Button fx:id="create" focusTraversable="false" maxWidth="Infinity" onAction="#create" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #D0C9D0;" text="Create folder" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font></Button>
 
 
-        <Button fx:id="delete" focusTraversable="false" maxWidth="Infinity" onAction="#deleteFile" prefHeight="21.0"
-                prefWidth="126.0" text="Delete" HBox.hgrow="ALWAYS"/>
-        <Button fx:id="create" focusTraversable="false" maxWidth="Infinity" onAction="#create" prefHeight="26.0"
-                prefWidth="126.0" text="Create folder" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="delete" focusTraversable="false" maxWidth="Infinity" onAction="#deleteFile" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #D0C9D0;" text="Delete" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font></Button>
+      <Button fx:id="rename" focusTraversable="false" onAction="#Rename" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #D0C9D0;" text="Rename">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font>
+      </Button>
 
         <padding>
-            <Insets bottom="5" left="5" right="5" top="5"/>
+            <Insets bottom="5" left="5" right="5" top="5" />
         </padding>
 
     </HBox>

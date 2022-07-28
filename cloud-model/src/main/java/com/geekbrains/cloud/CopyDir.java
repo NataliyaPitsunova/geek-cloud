@@ -2,9 +2,7 @@ package com.geekbrains.cloud;
 
 import lombok.Data;
 
-
 @Data
-public class FileRequest implements CloudMessage{
+public class CopyDir implements CloudMessage {
     private final String name;
-
 }
