@@ -3,9 +3,6 @@ package com.geekbrains.cloud.june.cloudserver;
 import com.geekbrains.cloud.june.cloudserver.Handler.CloudHandler;
 import com.geekbrains.cloud.june.cloudserver.Handler.ConnectedUser;
 import com.geekbrains.cloud.june.cloudserver.Handler.MainStringInboundHandler;
-import com.geekbrains.cloud.june.regin.Registration.AuthService;
-import com.geekbrains.cloud.june.regin.Registration.ClientInfo;
-import com.geekbrains.cloud.june.regin.Registration.InMemory;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -18,9 +15,6 @@ import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Slf4j
 public class CloudServer {
@@ -60,6 +54,5 @@ public class CloudServer {
 
     public static void main(String[] args) {
         new CloudServer();
-
     }
 }

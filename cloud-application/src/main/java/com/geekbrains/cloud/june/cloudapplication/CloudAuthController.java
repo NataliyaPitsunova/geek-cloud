@@ -45,18 +45,20 @@ public class CloudAuthController implements Initializable {
                             @Override
                             public void run() {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setTitle("РЕГИСТРАЦИЯ ЗАВЕРШЕНА");
+                                alert.setTitle("РЕГИСТРАЦИЯ ЗАВЕРШЕНА УСПЕШНО");
                                 alert.setHeaderText("Пользователь успешно зарегистрирован");
-                                alert.setContentText("Для входа в облако перейдите на вкладку вход");
+                                alert.setContentText("Для входа в облако перейдите на вкладку 'ВХОД' ");
                                 alert.showAndWait();
                             }
                         });
+                        logReg.clear();
+                        passReg.clear();
                     } else {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
                                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("ОШИБКА");
+                                alert.setTitle("РЕГИСТРАЦИЯ НЕ ЗАВЕРШЕНА");
                                 alert.setHeaderText("Пользователь с таким именем уже зарегистрирован");
                                 alert.setContentText("Используйте другой логин");
                                 alert.showAndWait();
@@ -70,9 +72,9 @@ public class CloudAuthController implements Initializable {
                             @Override
                             public void run() {
                                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("Error");
-                                alert.setHeaderText("User online");
-                                alert.setContentText("Please, try later");
+                                alert.setTitle("ОШИБКА");
+                                alert.setHeaderText("Пользователь с таким именем в сети");
+                                alert.setContentText("Попробуйте позже");
                                 alert.showAndWait();
                             }
                         });
@@ -96,9 +98,9 @@ public class CloudAuthController implements Initializable {
                                 @Override
                                 public void run() {
                                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                                    alert.setTitle("Error");
-                                    alert.setHeaderText("Wrong login or password!");
-                                    alert.setContentText("Please, try again");
+                                    alert.setTitle("ОЩИБКА");
+                                    alert.setHeaderText("Ыыеден неверный логин или пароль!");
+                                    alert.setContentText("Повторите попытку входа");
                                     alert.showAndWait();
                                 }
                             });

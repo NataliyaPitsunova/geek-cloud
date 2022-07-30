@@ -31,5 +31,8 @@ public class CloudAuthApp extends Application {
         });
     }
 
+    public static void main(String[] args) {
+        CloudAuthApp.launch();
+    }
 }
 

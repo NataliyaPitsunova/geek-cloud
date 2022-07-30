@@ -138,7 +138,9 @@ public class CloudAppController implements Initializable {
 
 
         clientList.getColumns().addAll(fileTypeColumn, fileNameColumn, fileSizeColumn, fileLastModColumn);  //заполняем таблицу столбцами
-        clientList.getSortOrder().add(fileTypeColumn);          //сортируем по типу файла
+        clientList.getSortOrder().add(fileTypeColumn);
+        clientList.getOnSort();
+        //сортируем по типу файла
         //аналогично для таблицы на сервере
         TableColumn<FileInfo, String> fileNameClmn = new TableColumn<>("Имя");
         fileNameClmn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getFileName()));
@@ -177,6 +179,7 @@ public class CloudAppController implements Initializable {
         fileLastModClmn.setPrefWidth(160);
         serverList.getColumns().addAll(fileTypeClmn, fileNameClmn, fileSizeClmn, fileLastModClmn);
         serverList.getSortOrder().add(fileTypeClmn);
+        serverList.getOnSort();
     }
 
     //метод загрузки на сервер
